@@ -264,43 +264,54 @@ function AuthStack() {
   return (
     <NavigationThemeProvider
       value={isDark ? DarkTheme : DefaultTheme}
+
       // key={themeKey}
     >
-      <Stack screenOptions={{ headerShown: false }}>
-        {user ? (
-          <>
-            <Stack.Screen name="(Market)" />
-            <Stack.Screen name="AccountDetail" />
-            <Stack.Screen name="Privacy" />
-            <Stack.Screen name="Terms" />
-            <Stack.Screen name="Help" />
-            <Stack.Screen name="Search" />
-            <Stack.Screen name="StockDetail" />
-            <Stack.Screen name="Form" />
-            <Stack.Screen name="SupabasePage" />
-            <Stack.Screen name="Stockbuy" />
-            <Stack.Screen name="ReviewOrder" />
-            <Stack.Screen name="OrderPlacement" />
-            <Stack.Screen name="Notification" />
-            <Stack.Screen name="openAccount" />
-            <Stack.Screen name="OrderProcessing" />
-            <Stack.Screen name="ClientForm" />
-            <Stack.Screen name="ClientResetForm" />
-            <Stack.Screen name="Reports" />
-            <Stack.Screen name="Trading" />
-            <Stack.Screen name="NewGraph" />
-            <Stack.Screen name="RaastId" />
-          </>
-        ) : (
-          <>
-            <Stack.Screen name="(tabs)" />
-          </>
-        )}
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#000" ,
+          width: "100%",
+          maxWidth: 460,
+          alignSelf: "center",
+        }}
+      >
+        <Stack screenOptions={{ headerShown: false }}>
+          {user ? (
+            <>
+              <Stack.Screen name="(Market)" />
+              <Stack.Screen name="AccountDetail" />
+              <Stack.Screen name="Privacy" />
+              <Stack.Screen name="Terms" />
+              <Stack.Screen name="Help" />
+              <Stack.Screen name="Search" />
+              <Stack.Screen name="StockDetail" />
+              <Stack.Screen name="Form" />
+              <Stack.Screen name="SupabasePage" />
+              <Stack.Screen name="Stockbuy" />
+              <Stack.Screen name="ReviewOrder" />
+              <Stack.Screen name="OrderPlacement" />
+              <Stack.Screen name="Notification" />
+              <Stack.Screen name="openAccount" />
+              <Stack.Screen name="OrderProcessing" />
+              <Stack.Screen name="ClientForm" />
+              <Stack.Screen name="ClientResetForm" />
+              <Stack.Screen name="Reports" />
+              <Stack.Screen name="Trading" />
+              <Stack.Screen name="NewGraph" />
+              <Stack.Screen name="RaastId" />
+            </>
+          ) : (
+            <>
+              <Stack.Screen name="(tabs)" />
+            </>
+          )}
 
-        <Stack.Screen name="+not-found" />
-      </Stack>
-
-      <StatusBar style={isDark ? "light" : "dark"} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+</View>
+        <StatusBar style={isDark ? "light" : "dark"} />
+      
     </NavigationThemeProvider>
   );
 }

@@ -314,7 +314,8 @@ export default function IndicesView({
 
   const handleStockPress = (symbol) => {
     try {
-      router.push(`/NewGraph?symbol=${symbol}`);
+      // router.push(`/NewGraph?symbol=${symbol}`);
+      window.open(`/NewGraph?symbol=${symbol}`, "_blank", "noopener,noreferrer");
     } catch (err) {
       console.error("Navigation error:", err);
       setError("Failed to navigate to stock details.");
