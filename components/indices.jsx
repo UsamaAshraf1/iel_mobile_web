@@ -352,7 +352,7 @@ export default function IndicesView({
         }
       : {};
 
-    const itemWidth = (screenWidth - 20) / 2.4; // Account for 6px margin on each side per item
+    const itemWidth = (screenWidth - 20) / 2.2; // Account for 6px margin on each side per item
 
     // console.log(itemWidth);
 
@@ -365,7 +365,7 @@ export default function IndicesView({
           style={[
             styles.indexItem,
             {
-              width: itemWidth,
+              width: 185,
               backgroundColor: isDark ? "#222222" : "#F9F9F9",
               borderWidth: isDark ? 1 : 0,
               borderColor: isDark ? "#FFFFFF14" : "",

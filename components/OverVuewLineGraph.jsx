@@ -52,7 +52,7 @@ const OverViewLineGraph = ({
   const dashOffset = useRef(new Animated.Value(0)).current;
   const yAxisWidth = 70;
 
-  const screenWidth = Dimensions.get("window").width;
+  const screenWidth = 430;
   const chartWidth = screenWidth - yAxisWidth;
   const leftPadding = 20;
   const rightPadding = yAxisWidth;
@@ -509,7 +509,7 @@ const OverViewLineGraph = ({
                   )}
 
                 {/* 🔥 Current Price Line */}
-                {(selectedPeriod === "D") && currentPriceY !== null && (
+                {selectedPeriod === "D" && currentPriceY !== null && (
                   <>
                     {/* Dashed horizontal line */}
                     <Path
@@ -629,7 +629,14 @@ const OverViewLineGraph = ({
           style={[isDark ? styles.button : styles.buttonLight]}
           // onPress={() => handlePeriodChange(period)}
           // onPress={() => setActiveGraphTab("candle")}
-          onPress={() => router.push(`/NewGraph?symbol=${symbol}`)}
+          // onPress={() => router.push(`/NewGraph?symbol=${symbol}`)}
+          onPressIn={() =>
+            window.open(
+              `/NewGraph?symbol=${symbol}`,
+              "_blank",
+              "noopener,noreferrer",
+            )
+          }
         >
           <Image
             source={
@@ -659,6 +666,7 @@ const styles = StyleSheet.create({
   },
   graphContainer: {
     width: "100%",
+    maxWidth: 460,
     alignItems: "center",
     height: "auto",
   },

@@ -250,7 +250,7 @@ export default function SignupScreen() {
                 alignItems: "center",
                 backgroundColor:
                   isDark ? "#FFFFFF14" : "#F4F4F4",
-                paddingHorizontal: 12,
+                padding: 12,
               }}
             >
               <TextInput

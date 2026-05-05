@@ -249,7 +249,7 @@ export default function LoginScreen() {
                 alignItems: "center",
                 backgroundColor:
                   isDark ? "#FFFFFF14" : "#F4F4F4",
-                paddingHorizontal: 12,
+                padding: 12,
               }}
             >
               <TextInput
@@ -406,7 +406,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: "100%",
     position: "absolute",
-    bottom: 100,
+    bottom: 80,
   },
   loginButtonText: {
     color: "#fff",
@@ -432,7 +432,7 @@ const styles = StyleSheet.create({
   },
   footerLogin: {
     position: "absolute",
-    bottom: 165,
+    bottom: 145,
     flexDirection: "row",
     justifyContent: "center",
     width: "100%",

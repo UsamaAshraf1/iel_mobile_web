@@ -2588,7 +2588,7 @@ export default function Market() {
                     borderRadius: 18,
                     backgroundColor: "#3FB950",
 
-                    height: "240px",
+                    height: "220px",
                   }}
                 >
                   <LinearGradient
