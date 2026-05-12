@@ -25,7 +25,7 @@ import {
 
 const { width: screenWidth } = Dimensions.get("window");
 import { useRouter } from "expo-router";
-import { BaseUrl, SocketUrl } from "../../constants/baseUrl";
+import { BaseUrl, SocketUrl, maxwidth } from "../../constants/baseUrl";
 import AsyncStorage from "@react-native-async-storage/async-storage"; // Import AsyncStorage
 import { useFocusEffect } from "@react-navigation/native";
 import IndicesView from "../../components/indices";
@@ -123,7 +123,7 @@ export default function Market() {
   //   return Array.from(symbols).filter(Boolean);
   // }, [GainersData, DeclinersData, TrendingStocksData, recentlyVisited]);
 
-   const holdingsSymbols = useMemo(() => {
+  const holdingsSymbols = useMemo(() => {
     if (!ClientPorfolio?.holdings?.length) return [];
 
     return [
@@ -690,8 +690,6 @@ export default function Market() {
       console.error("Fetch marketing_banner error:", err);
     }
   }, []);
-
- 
 
   const fetchHoldingsLatestPrices = useCallback(async () => {
     if (!holdingsSymbols?.length) return;
@@ -3541,7 +3539,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
   },
   modalContainer: {
-    width: screenWidth * 0.8,
+    width: 440,
 
     borderRadius: 10,
     padding: 20,

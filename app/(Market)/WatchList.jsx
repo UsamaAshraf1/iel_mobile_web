@@ -1075,8 +1075,8 @@ export default function WatchList() {
                               : require("../../assets/new_image.png")
                           }
                           style={{
-                            width: 106,
-                            height: 106,
+                            width: 64,
+                            height: 64,
                             borderRadius: 8,
                           }}
                           resizeMode="cover"

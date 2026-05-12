@@ -364,12 +364,12 @@ export default function Portfolio() {
           <View
             style={[
               styles.symbolContainer,
-              {
-                backgroundColor: isDark ? "#222222" : "#EBEBEB",
-              },
+              // {
+              //   backgroundColor: isDark ? "#222222" : "#EBEBEB",
+              // },
             ]}
           >
-            <Text
+            {/* <Text
               style={[
                 styles.symbolText,
                 {
@@ -381,8 +381,8 @@ export default function Portfolio() {
               minimumFontScale={0.7}
             >
               {item.security}
-            </Text>
-            {/* <StockLogo symbol={item?.security} size={52} /> */}
+            </Text> */}
+            <StockLogo symbol={item?.security} size={52} />
           </View>
           <View style={styles.sharesContainer}>
             <Text
@@ -479,7 +479,7 @@ export default function Portfolio() {
                 ]}
               >
                 {/* {isPositiveChange ? "+" : ""} */}
-                {( (Math.abs(Chnage) / item.totalCost) * 100).toFixed(2)} %
+                {((Math.abs(Chnage) / item.totalCost) * 100).toFixed(2)} %
               </Text>
             </View>
           </View>
@@ -586,12 +586,12 @@ export default function Portfolio() {
               <View
                 style={[
                   styles.symbolContainer,
-                  {
-                    backgroundColor: "#EBEBEB",
-                  },
+                  // {
+                  //   backgroundColor: "#EBEBEB",
+                  // },
                 ]}
               >
-                <Text
+                {/* <Text
                   style={[
                     styles.symbolText,
                     {
@@ -603,7 +603,8 @@ export default function Portfolio() {
                   minimumFontScale={0.7}
                 >
                   {selectedStock.security}
-                </Text>
+                </Text> */}
+                <StockLogo symbol={selectedStock?.security} size={52} />
               </View>
               <View style={{ marginLeft: 14 }}>
                 <Text
@@ -1258,18 +1259,24 @@ export default function Portfolio() {
                   }}
                 >
                   <View style={{ width: "65%" }}>
-                    <View style={{ flexDirection: "row",justifyContent:"space-between", alignItems: "center" }}>
-                    <Text
+                    <View
                       style={{
-                        fontFamily: "SfRegular",
-                        fontWeight: "500",
-                        fontSize: 13,
-                        lineHeight: 19,
-                        color: "#FFFFFF",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        alignItems: "center",
                       }}
                     >
-                      Total Holdings Value
-                    </Text>
+                      <Text
+                        style={{
+                          fontFamily: "SfRegular",
+                          fontWeight: "500",
+                          fontSize: 13,
+                          lineHeight: 19,
+                          color: "#FFFFFF",
+                        }}
+                      >
+                        Total Holdings Value
+                      </Text>
                       {/* <TouchableOpacity onPress={()=>{fetchClientPortfolio()}}>
                          <Image
                           source={require("../../assets/icons/new_reload_icon.png")}
@@ -1457,7 +1464,7 @@ export default function Portfolio() {
                     top: 340,
                     right: 40,
                     padding: 12,
-                     borderRadius: 8,
+                    borderRadius: 8,
                   }}
                 >
                   <TouchableOpacity
