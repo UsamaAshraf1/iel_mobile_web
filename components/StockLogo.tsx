@@ -12,7 +12,11 @@ export const StockLogo: React.FC<StockLogoProps> = ({ symbol, size = 32 }) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const normalizedSymbol = symbol.trim().toUpperCase();
+  // const normalizedSymbol = symbol.trim().toUpperCase();
+   const normalizedSymbol = symbol
+    .trim()
+    .toUpperCase()
+    .split('-')[0];
 
   useEffect(() => {
     let isMounted = true;

@@ -382,7 +382,7 @@ export default function Portfolio() {
             >
               {item.security}
             </Text> */}
-            <StockLogo symbol={item?.security} size={52} />
+            <StockLogo symbol={item?.security} size={36} />
           </View>
           <View style={styles.sharesContainer}>
             <Text
@@ -604,7 +604,7 @@ export default function Portfolio() {
                 >
                   {selectedStock.security}
                 </Text> */}
-                <StockLogo symbol={selectedStock?.security} size={52} />
+                <StockLogo symbol={selectedStock?.security} size={36} />
               </View>
               <View style={{ marginLeft: 14 }}>
                 <Text
