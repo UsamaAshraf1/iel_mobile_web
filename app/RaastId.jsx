@@ -447,7 +447,7 @@ export default function RaastScreen() {
       setLoading(true);
 
       const response = await fetch(
-        `http://113.203.232.204:9089/api/generatePaymentId/${clientCode}`,
+        `https://trade.iel.net.pk:9089/api/generatePaymentId/${clientCode}`,
         {
           method: "GET",
           headers: {
