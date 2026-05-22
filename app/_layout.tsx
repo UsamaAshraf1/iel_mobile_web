@@ -270,7 +270,7 @@ function AuthStack() {
       <View
         style={{
           flex: 1,
-          backgroundColor: "#000" ,
+          backgroundColor: "#000",
           width: "100%",
           maxWidth: 460,
           alignSelf: "center",
@@ -300,6 +300,7 @@ function AuthStack() {
               <Stack.Screen name="Trading" />
               <Stack.Screen name="NewGraph" />
               <Stack.Screen name="RaastId" />
+              <Stack.Screen name="Onetimepass" />
             </>
           ) : (
             <>
@@ -309,9 +310,8 @@ function AuthStack() {
 
           <Stack.Screen name="+not-found" />
         </Stack>
-</View>
-        <StatusBar style={isDark ? "light" : "dark"} />
-      
+      </View>
+      <StatusBar style={isDark ? "light" : "dark"} />
     </NavigationThemeProvider>
   );
 }

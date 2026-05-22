@@ -2823,7 +2823,7 @@ export default function Market() {
                               marginLeft: 6,
                             }}
                           >
-                            Today's Change
+                            Total Change
                           </Text>
                           <TouchableOpacity onPress={refreshPortfolioSummary}>
                             <Image
@@ -2841,7 +2841,7 @@ export default function Market() {
                             fontSize: 14,
                             lineHeight: 25,
                             // color: color,
-                            color: "#FFFFFF",
+                            color: isDark ? "#FFFFFF" : "#0B1B0C",
                             marginTop: 6,
                           }}
                         >
@@ -2854,15 +2854,28 @@ export default function Market() {
                             fontWeight: "600",
                             fontSize: 20,
                             lineHeight: 25,
-                            color: color,
+                            // color: color,
+                            color:
+                              ClientPorfolio?.portfolio?.totalProfitLoss > 0
+                                ? isDark
+                                  ? "#53BA83"
+                                  : "#3FB950"
+                                : isDark
+                                  ? "#FF6B6B"
+                                  : "#E00000",
                             // marginTop: 12,
                           }}
                           numberOfLines={1}
                           adjustsFontSizeToFit={true}
                           minimumFontScale={0.5}
                         >
-                          {sign}
-                          {formatPKR(Math.abs(dailyPriceChange)) || 0}{" "}
+                          {/* {sign}
+                          {formatPKR(Math.abs(dailyPriceChange)) || 0}{" "} */}
+                          {formatPKR(
+                            ClientPorfolio
+                              ? ClientPorfolio?.portfolio?.totalProfitLoss
+                              : 0,
+                          )}
                         </Text>
                       </View>
                       <View
@@ -2883,12 +2896,40 @@ export default function Market() {
                             fontSize: 13,
                             lineHeight: 19,
                             // color: "#3FB950",
-                            color: color,
+                            // color: color,
+                            color:
+                              ClientPorfolio &&
+                              (ClientPorfolio?.portfolio?.totalProfitLoss /
+                                ClientPorfolio?.portfolio?.custodyValue) *
+                                100 >
+                                0
+                                ? isDark
+                                  ? "#53BA83"
+                                  : "#3FB950"
+                                : ClientPorfolio &&
+                                    (ClientPorfolio?.portfolio
+                                      ?.totalProfitLoss /
+                                      ClientPorfolio?.portfolio?.custodyValue) *
+                                      100 <
+                                      0
+                                  ? isDark
+                                    ? "#FF6B6B"
+                                    : "#E00000"
+                                  : isDark
+                                    ? "#E0E0E0"
+                                    : "#0B1B0C",
                             marginLeft: 2,
                           }}
                         >
-                          ({sign}
-                          {Math.abs(dailyPercentChange).toFixed(2)}%)
+                          {/* ({sign}
+                          {Math.abs(dailyPercentChange).toFixed(2)}%) */}
+                          {ClientPorfolio
+                            ? `${(
+                                (ClientPorfolio?.portfolio?.totalProfitLoss /
+                                  ClientPorfolio?.portfolio?.custodyValue) *
+                                100
+                              ).toFixed(2)}%`
+                            : "0.00%"}
                         </Text>
                       </View>
                     </View>
@@ -2961,33 +3002,62 @@ export default function Market() {
                     </TouchableOpacity>
                   </View>
                 </View>
-
-                <TouchableOpacity
-                  style={{
-                    borderWidth: 2,
-                    borderColor: "#53BA83",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    paddingVertical: 18,
-                    borderRadius: 14,
-                    backgroundColor: isDark ? "transparent" : "#FFFFFF",
-                    marginTop: 16,
-                  }}
-                  onPress={() => router.push("/Portfolio")}
-                >
-                  <Text
+                <View style={{ flexDirection: "row", justifyContent: "center",gap: 16 }}>
+                  <TouchableOpacity
                     style={{
-                      fontFamily: "SfRegular",
-                      fontWeight: "600",
-                      fontSize: 15,
-                      lineHeight: 22,
-                      color: "#53BA83",
+                      borderWidth: 2,
+                      borderColor: "#53BA83",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      paddingVertical: 18,
+                      borderRadius: 14,
+                      backgroundColor: isDark ? "transparent" : "#FFFFFF",
+                      marginTop: 16,
+                      width: "48%",
                     }}
+                    onPress={() => router.push("/Portfolio")}
                   >
-                    View Full Portfolio
-                  </Text>{" "}
-                </TouchableOpacity>
+                    <Text
+                      style={{
+                        fontFamily: "SfRegular",
+                        fontWeight: "600",
+                        fontSize: 15,
+                        lineHeight: 22,
+                        color: "#53BA83",
+                      }}
+                    >
+                      View Full Portfolio
+                    </Text>{" "}
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{
+                      borderWidth: 2,
+                      borderColor: "#53BA83",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      paddingVertical: 18,
+                      borderRadius: 14,
+                      backgroundColor: isDark ? "transparent" : "#FFFFFF",
+                      marginTop: 16,
+                      width: "48%",
+                    }}
+                    onPress={() => router.push("/RaastId")}
+                  >
+                    <Text
+                      style={{
+                        fontFamily: "SfRegular",
+                        fontWeight: "600",
+                        fontSize: 15,
+                        lineHeight: 22,
+                        color: "#53BA83",
+                      }}
+                    >
+                      Raast Id
+                    </Text>{" "}
+                  </TouchableOpacity>
+                </View>
               </>
             )}
 

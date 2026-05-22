@@ -118,10 +118,21 @@ export default function ReviewOrder() {
       subClientCode: "",
     };
 
-    StompService.placeNewOrder(payload);
-    router.push(
-      `/OrderProcessing?order=${order}&symbol=${symbol}&ShareNumber=${ShareNumber}&selectedorderType=${selectedorderType}&triggerPrice=${trigger}`,
-    );
+    // StompService.placeNewOrder(payload);
+    // router.push(
+    //   `/OrderProcessing?order=${order}&symbol=${symbol}&ShareNumber=${ShareNumber}&selectedorderType=${selectedorderType}&triggerPrice=${trigger}`,
+    // );
+    router.push({
+      pathname: "/Onetimepass",
+      params: {
+        orderPayload: JSON.stringify(payload),
+        order,
+        symbol,
+        ShareNumber,
+        selectedorderType,
+        trigger,
+      },
+    });
   };
 
   return (
