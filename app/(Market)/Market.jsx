@@ -212,6 +212,7 @@ export default function Market() {
 
   // Recently Visited animations
   useEffect(() => {
+    if (!Array.isArray(recentlyVisitedData)) return;
     recentlyVisitedData.forEach((item) => {
       const symbol = item.symbol;
       if (!recentPriceAnims.current[symbol]) {

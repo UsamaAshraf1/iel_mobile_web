@@ -76,7 +76,11 @@ export default function IndicesView({
         );
         const data = await response.json();
         // Transform API data to match WebSocket data structure
-        const formattedData = data.reduce((acc, item) => {
+        // if (!Array.isArray(data)) {
+        //   return;
+        // }
+        if (!Array.isArray(data)) return;
+        const formattedData = data?.reduce((acc, item) => {
           const symbol = item.symbol;
           if (indicesSymbols[symbol]) {
             acc[symbol] = {
@@ -315,7 +319,11 @@ export default function IndicesView({
   const handleStockPress = (symbol) => {
     try {
       // router.push(`/NewGraph?symbol=${symbol}`);
-      window.open(`/NewGraph?symbol=${symbol}`, "_blank", "noopener,noreferrer");
+      window.open(
+        `/NewGraph?symbol=${symbol}`,
+        "_blank",
+        "noopener,noreferrer",
+      );
     } catch (err) {
       console.error("Navigation error:", err);
       setError("Failed to navigate to stock details.");
